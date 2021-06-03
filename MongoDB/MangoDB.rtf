@@ -1,0 +1,528 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red141\green86\blue190;\red132\green133\blue134;\red0\green0\blue0;
+\red248\green38\blue113;\red19\green152\blue154;\red95\green155\blue37;\red141\green136\blue63;\red216\green124\blue38;
+}
+{\*\expandedcolortbl;;\cssrgb\c62745\c43529\c79216;\cssrgb\c58824\c59216\c59608;\cssrgb\c0\c0\c0;
+\cssrgb\c98824\c26275\c51765;\cssrgb\c0\c65490\c66667;\cssrgb\c43922\c65882\c19216;\cssrgb\c62353\c59608\c31373;\cssrgb\c88235\c56078\c19216;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww51000\viewh25860\viewkind0
+\deftab720
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+1\cf3 ) How to create DB\cf4 \
+\cf3 \'a0\'a0\'a0 use product; \cf5 ==> \cf3 switched to db product\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 2\cf3 )How to see which database are you \cf6 in\cf4 \
+\cf3 \'a0\'a0 \cf7 db\cf3 ; \cf5 ==> \cf3 products\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 3\cf3 ) How to add a collection into a DB\cf4 \
+\cf3 \'a0\'a0\'a0 db.createCollection(\cf8 "products"\cf3 ); \cf5 ==>\cf3  \{ \cf8 "ok"\cf3  : \cf2 1\cf3  \}\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 4\cf3 )How to insert a single Document into a collection \cf4 \
+\cf3 \'a0\'a0\'a0 db.products.insertOne(\{ \cf8 "product_name"\cf3 :\cf8 "Laptop"\cf3 , \cf8 "price"\cf3  : \cf2 800\cf3 , \cf8 "tax"\cf3 : \cf2 32\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 5\cf3 )How to insert multiple Documents into a collection\cf4 \
+\cf3 db.electronics.insertMany([\{\cf8 "name"\cf3 :\cf8 "ipod"\cf3 , \cf8 "price"\cf3 :\cf2 111\cf3 \}, \{\cf8 "name"\cf3 :\cf8 "iphone 11"\cf3 \}, \{\cf8 "name"\cf3 :\cf8 "radio"\cf3 , \cf8 "price"\cf3 :\cf2 53\cf3 , \cf8 "tax"\cf3 :\cf2 10\cf3 \}]);\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 6\cf3 )How to insert a single or many documents into a collection\cf4 \
+\cf3 \'a0 db.electronics.insert(\{\cf8 "name"\cf3 :\cf8 "iron"\cf3 , \cf8 "tax"\cf3 :\cf2 12\cf3 \});\cf4 \
+\cf3 \'a0 db.electronics.insert([\{\cf8 "price"\cf3 :\cf2 123\cf3 \}, \{\cf8 "name"\cf3 :\cf8 "radio"\cf3 , \cf8 "tax"\cf3 :\cf2 8\cf3 \}]);\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 7\cf3 )How to create our own index\cf4 \
+\cf3 \'a0 db.electronics.ensureIndex(\{\cf8 "name"\cf3 :\cf2 1\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 8\cf3 )How to drop database\cf4 \
+\cf3 \'a0 db.dropDatabase();\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 9\cf3 )How to drop collection\cf4 \
+\cf3 \'a0 db.electronics.drop();\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 10\cf3 )How to read all documents from a collection\cf4 \
+\cf3 \'a0 db.clothes.find();\
+\'a0 db.clothes.find().pretty(); \cf5 ==> \cf3 Makes the output more readable\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 11\cf3 )How to read limited number of Documents\cf4 \
+\cf3 \'a0 db.clothes.find().pretty().limit(\cf2 2\cf3 ); \cf5 ==> \cf3 It will display just first \cf2 2 \cf3 documents\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 12\cf3 ) How to read \cf2 3\cf3 rd document\cf4 \
+\cf3 \'a0 db.clothes.find().pretty().skip(\cf2 2\cf3 ).limit(\cf2 1\cf3 );\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 13\cf3 )How to read documents whose names are Shirt\cf4 \
+\cf3 db.clothes.find(\{\cf8 "name"\cf3 :\cf8 "Shirt"\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 14\cf3 )How to read documents whose name is \cf8 "Shirt" \cf3 AND priceis \cf8 "34"\cf4 \
+\cf3 \'a0 db.clothes.find(\{$and:[\{\cf8 "name"\cf3 :\cf8 "Shirt"\cf3 \}, \{\cf8 "price"\cf3 :\cf2 34\cf3 \}]\}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 15\cf3 )How to read documents whose names are \cf8 "Shirt" \cf3 OR \cf8 "Trouser"\cf4 \
+\cf3 \'a0 db.clothes.find(\{$or:[\{\cf8 "name"\cf3 :\cf8 "Shirt"\cf3 \}, \{\cf8 "name"\cf3 :\cf8 "Trouser"\cf3 \}]\}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 16\cf3 )How to read just prices of the Shirts\cf4 \
+\cf3 \'a0 db.clothes.find(\{\cf8 "name"\cf3 :\cf8 "Shirt"\cf3 \},\{\cf8 "price"\cf3 :\cf2 1\cf3 ,\cf8 "_id"\cf3 :\cf2 0\cf3 \}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 17\cf3 )How to read just prices and names of the clothes, sort them by prices \cf6 in \cf3 ascending\cf4 \
+\cf3 \'a0 db.clothes.find(\{\}, \{\cf8 "name"\cf3 :\cf2 1\cf3 , \cf8 "price"\cf3 :\cf2 1\cf3 , \cf8 "_id"\cf3 :\cf2 0\cf3 \}).sort(\{\cf8 "price"\cf3 :\cf2 1\cf3 \}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 18\cf3 )How to read just prices and names of the clothes, sort them by prices \cf6 in \cf3 descending\cf4 \
+\cf3 \'a0 db.clothes.find(\{\}, \{\cf8 "name"\cf3 :\cf2 1\cf3 , \cf8 "price"\cf3 :\cf2 1\cf3 , \cf8 "_id"\cf3 :\cf2 0\cf3 \}).sort(\{\cf8 "price"\cf3 :\cf5 -\cf2 1\cf3 \}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 19\cf3 )How to to read first one\cf4 \
+\cf3 \'a0 a)db.clothes.find().limit(\cf2 1\cf3 ).pretty();\cf4 \
+\cf3 \'a0 b)db.clothes.findOne();\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 20\cf3 )How to read Shirts \cf6 in \cf3 ascending order by mark\cf4 \
+\cf3 \'a0 db.clothes.find(\{\cf8 "name"\cf3 :\cf8 "Shirt"\cf3 \}, \{\cf8 "_id"\cf3 :\cf2 0\cf3 \}).sort(\{\cf8 "mark"\cf3 :\cf5 -\cf2 1\cf3 \}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note: Comparison Operators\
+\'a0\'a0\'a0\'a0\'a0 Equality \cf5 ==> \cf3 $eq\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 Less than \cf5 ==> \cf3 $lt\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 Greater than \cf5 ==> \cf3 $gt\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 Less than or equal to \cf5 ==> \cf3 $lte\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 Greater than or equal to \cf5 ==> \cf3 $gte \cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 Not equal \cf5 ==> \cf3 $ne \cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 In an Array \cf5 ==> \cf3 $in \cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 Not \cf6 in \cf3 an Array \cf5 ==> \cf3 $nin\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 21\cf3 )Fetch documents whose prices are equal to \cf2 23\cf4 \
+\cf3 \'a0 a)db.clothes.find(\{\cf8 "price"\cf3 :\cf2 23\cf3 \}).pretty(); OR \cf4 \
+\cf3 \'a0\'a0\'a0 db.clothes.find(\{price:\cf2 23\cf3 \}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 \'a0 b)db.clothes.find(\{price:\{$eq:\cf2 23\cf3 \}\}).pretty(); OR \cf4 \
+\cf3 \'a0\'a0\'a0 db.clothes.find(\{\cf8 "price"\cf3 :\{$eq:\cf2 23\cf3 \}\}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 22\cf3 )Fetch documents whose prices are less than or equal to \cf2 34\cf4 \
+\cf3 \'a0\'a0 db.clothes.find(\{\cf8 "price"\cf3 :\{$lte:\cf2 34\cf3 \}\}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 23\cf3 )Fetch documents whose prices are greater than or equal to \cf2 43\cf4 \
+\cf3 \'a0\'a0 db.clothes.find(\{\cf8 "price"\cf3 :\{$gte:\cf2 43\cf3 \}\}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 24\cf3 )Fetch documents whose prices are one of the \cf2 23\cf3 , \cf2 45\cf3 , \cf2 34\cf4 \
+\cf3 \'a0\'a0 db.clothes.find(\{\cf8 "price"\cf3 :\{$in:[\cf2 23\cf3 ,\cf2 45\cf3 ,\cf2 34\cf3 ]\}\}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 25\cf3 )Fetch documents whose prices are not one of the \cf2 23\cf3 , \cf2 45\cf3 , \cf2 34\cf4 \
+\cf3 \'a0 db.clothes.find(\{\cf8 "price"\cf3 :\{$nin:[\cf2 23\cf3 ,\cf2 45\cf3 ,\cf2 34\cf3 ]\}\}).pretty();\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note\cf5 -\cf2 1\cf3 : findOneAndReplace() [Similar \cf6 with \cf3 PUT Method \cf6 in \cf3 API]\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 \cf2 1\cf3 )It updates the sending values, it removes the missing values\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 \cf2 2\cf3 )findOneAndReplace() updates just a single document which is the first\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 \cf2 3\cf3 )When you execute findOneAndReplace() on VSCode, it will print the un\cf5 -\cf3 updated document on the console \cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 26\cf3 )Find the documents whose prices are less than \cf2 30 \cf3 then replace \cf8 "BoxerXXX" \cf6 for \cf3 name and \cf2 99 \cf6 for \cf3 price.\cf4 \
+\cf3 \'a0\'a0\'a0 db.clothes.findOneAndReplace(\{\cf8 "price"\cf3 :\{$lt:\cf2 35\cf3 \}\}, \{\cf8 "name"\cf3 :\cf8 "BoxerXXX"\cf3 , \cf8 "price"\cf3 :\cf2 99\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 27\cf3 )Find the documents whose prices are greater than \cf2 33 \cf3 and change the name of \cf4 \
+\cf3 \'a0\'a0 the document whose price is the lowest to \cf8 "Cheapest" \cf4 \
+\cf3 \'a0\'a0 db.clothes.findOneAndReplace(\{\cf8 "price"\cf3 :\{$gt:\cf2 33\cf3 \}\}, \{\cf8 "name"\cf3 :\cf8 "Cheapest"\cf3 \},\{sort:\{\cf8 "price"\cf3 :\cf2 1\cf3 \}\});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 28\cf3 )Find the documents whose prices are greater than \cf2 33 \cf3 and change the name of \cf4 \
+\cf3 the document whose price is the highest to \cf8 "The most expensive"\cf3 \'a0 \cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note\cf5 -\cf2 2\cf3 : findOneAndUpdate()\'a0 [Similar \cf6 with \cf3 PATCH Method \cf6 in \cf3 API]\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 \cf2 1\cf3 )It updates the sending values, it does not touch the missing values\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 \cf2 2\cf3 )findOneAndUpdate() updates just a single document which is the first\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 \cf2 3\cf3 )When you execute findOneAndUpdate() on VSCode, it will print the un\cf5 -\cf3 updated document on the console \cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 \cf2 4\cf3 )When you use findOneAndUpdate(), \cf6 do \cf3 not forget to use \cf8 "$set" \cf3 atomic opeartor \cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 29\cf3 )Find the documents whose prices are less than \cf2 35 \cf3 then replace \cf8 "Updated" \cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 for \cf3 name.\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 \'a0 db.clothes.findOneAndUpdate(\{\cf8 "price"\cf3 :\{$lt:\cf2 35\cf3 \}\}, \{$set:\{\cf8 "name"\cf3 :\cf8 "Updated"\cf3 \}\});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 30\cf3 )Find the documents whose prices are greater than \cf2 35 \cf3 and change the name of \cf4 \
+\cf3 \'a0\'a0 the document whose price is the lowest to \cf8 "Cheapest"\cf4 \
+\cf3 \'a0\'a0 db.clothes.findOneAndUpdate(\{\cf8 "price"\cf3 :\{$gt:\cf2 35\cf3 \}\}, \{$set:\{\cf8 "name"\cf3 :\cf8 "Cheapest"\cf3 \}\}, \{sort:\{\cf8 "price"\cf3 :\cf2 1\cf3 \}\});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 31\cf3 )Find the documents whose prices are less than \cf2 50 \cf3 and change the name of \cf4 \
+\cf3 the document whose price is the highest to \cf8 "The most expensive"\cf4 \
+\cf3 db.clothes.findOneAndUpdate(\{\cf8 "price"\cf3 :\{$lt:\cf2 50\cf3 \}\},\{$set:\{\cf8 "name"\cf3 :\cf8 "The most expensive"\cf3 \}\},\{sort:\{\cf8 "price"\cf3 :\cf5 -\cf2 1\cf3 \}\});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 32\cf3 )Find the document whose price equals to \cf2 23 \cf3 and update the mark to \cf8 "Levis"\cf3 , and price to \cf2 111. \cf4 \
+\cf3 See the updated document on the console\
+db.clothes.findOneAndUpdate(\{\cf8 "price"\cf3 :\{$eq:\cf2 23\cf3 \}\}, \{$set:\{\cf8 "mark"\cf3 :\cf8 "Levis"\cf3 , \cf8 "price"\cf3 :\cf2 111\cf3 \}\}, \{returnNewDocument:\cf9 true\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note: As you see \cf6 in \cf3 the previous example, to see updated document on the console you can type \cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 \{returnNewDocument:\cf9 true\cf3 \} inside the findOneAndUpdate() or findOneAndReplace()\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 33\cf3 )Find the document whose price equals to \cf2 888 \cf3 and update the mark to \cf8 "Levis"\cf3 , and price to \cf2 111. \cf4 \
+\cf3 See the updated document on the console, and \cf6 if \cf3 the document does not exist create it.\cf4 \
+\cf3 db.clothes.findOneAndUpdate(\{\cf8 "price"\cf3 :\{$eq:\cf2 888\cf3 \}\}, \{$set:\{\cf8 "mark"\cf3 :\cf8 "Levis"\cf3 , \cf8 "price"\cf3 :\cf2 111\cf3 \}\}, \{returnNewDocument:\cf9 true\cf3 , upsert:\cf9 true\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note: As you see \cf6 in \cf3 the previous example, to create document \cf6 if \cf3 it does not exist \cf4 \
+\cf3 when you \cf6 try \cf3 to update type \cf8 "upsert:true" \cf3 inside the findOneAndUpdate() \cf4 \
+\cf3 or findOneAndReplace() \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 34\cf3 )Update the names of all documents whose prices are less than \cf2 50 \cf3 to \cf8 "Wooow"\cf4 \
+\cf3 db.clothes.update(\{\cf8 "price"\cf3 :\{$lt:\cf2 50\cf3 \}\},\{$set:\{\cf8 "name"\cf3 :\cf8 "Wooow"\cf3 \}\}, \{multi:\cf9 true\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note: If you \cf6 do \cf3 not type \{multi:\cf9 true\cf3 \}, update() will update the first one. \cf4 \
+\cf3 If you want to update multiple documents type \{multi:\cf9 true\cf3 \}\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 34\cf3 )Update the names of all documents whose prices are greater than \cf2 200 \cf3 to \cf8 "High Five"\cf4 \
+\cf3 db.clothes.update(\{\cf8 "price"\cf3 :\{$gt:\cf2 200\cf3 \}\}, \{$set:\{\cf8 "name"\cf3 :\cf8 "High Five"\cf3 \}\}, \{multi:\cf9 true\cf3 , upsert:\cf9 true\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 35\cf3 )How to use updateMany()\cf4 \
+\cf3 db.clothes.updateMany(\{\cf8 "price"\cf3 :\{$lt:\cf2 50\cf3 \}\},\{$set:\{\cf8 "name"\cf3 :\cf8 "XXXXX"\cf3 \}\});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 36\cf3 )How to use updateOne()\cf4 \
+\cf3 db.clothes.updateOne(\{\cf8 "price"\cf3 :\{$lt:\cf2 50\cf3 \}\}, \{$set:\{\cf8 "name"\cf3 :\cf8 "YYYYYY"\cf3 \}\});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 37\cf3 )How to use \cf8 "upsert:true" \cf6 in \cf3 updateOne()\cf4 \
+\cf3 db.clothes.updateOne(\{\cf8 "price"\cf3 :\{$lt:\cf2 10\cf3 \}\}, \{$set:\{\cf8 "name"\cf3 :\cf8 "YYYYYY"\cf3 \}\}, \{upsert:\cf9 true\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note: How to \cf6 delete \cf3 a document \cf5 ==> \cf3 deleteOne(), deleteMany(), remove()\cf4 \
+\cf3 Note: If you ask to \cf6 delete \cf3 non\cf5 -\cf3 existing document, \cf6 delete \cf3 methods \cf6 do \cf3 not give any\cf4 \
+\cf3 \'a0\'a0\'a0\'a0\'a0 error, they tell \cf8 "deletedCount"\cf3  : \cf2 0\cf8 "\cf4 \
+\cf3 Note: deleteMany(), and remove() \cf6 do \cf3 the same, just their outputs are different\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 38\cf3 )Delete the document whose name is \cf8 "The most expensive"\cf4 \
+\cf3 \'a0 db.clothes.deleteOne(\{\cf8 "name"\cf3 :\cf8 "The most expensive"\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 39\cf3 )Delete the document whose name is \cf8 "XXXXX" \cf4 \
+\cf3 (We have multiple \cf8 "XXXXX" \cf3 but first will removed)\cf4 \
+\cf3 \'a0 db.clothes.deleteOne(\{\cf8 "name"\cf3 :\cf8 "XXXXX"\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 39\cf3 )Delete the documents whose name are \cf8 "YYYYY"\cf4 \
+\cf3 \'a0 db.clothes.deleteMany(\{\cf8 "name"\cf3 :\cf8 "YYYYYY"\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 40\cf3 )Delete the documents whose marks are \cf8 "Levis"\cf4 \
+\cf3 \'a0 db.clothes.remove(\{\cf8 "mark"\cf3 :\cf8 "Levis"\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 41\cf3 )Delete all documents\cf4 \
+\cf3 \'a0 db.clothes.deleteMany(\{\}); OR db.clothes.remove(\{\});\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note: To insert document\cf5 /\cf3 s we have \cf2 3 \cf3 methods insertOne(), insertMany(), insert()\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 42\cf3 )Insert a single document like name:TV, price:\cf2 123\cf3 , mark:Samsung\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf5 ==>\cf2 1.\cf3 Way:\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.electronics.insertOne(\{\cf8 "name"\cf3 :\cf8 "TV"\cf3 , \cf8 "price"\cf3 :\cf2 123\cf3 , \cf8 "mark"\cf3 :\cf8 "Samsung"\cf3 \});\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf5 ==>\cf2 2.\cf3 Way:\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.electronics.insert(\{\cf8 "name"\cf3 :\cf8 "TV"\cf3 , \cf8 "price"\cf3 :\cf2 123\cf3 , \cf8 "mark"\cf3 :\cf8 "Samsung"\cf3 \});\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 43\cf3 )Insert \cf2 3 \cf3 documents like \cf4 \
+\cf3 name:TV, price:\cf2 123\cf3 , mark:Samsung\cf4 \
+\cf3 name:Radio, price:\cf2 32\cf3 , mark:Panasonic\cf4 \
+\cf3 name:ipod, price:\cf2 150\cf3 , mark:Apple\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf5 ==>\cf2 1.\cf3 Way\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.electronics.insertMany([\{\cf8 "name"\cf3 :\cf8 "TV"\cf3 , \cf8 "price"\cf3 :\cf2 123\cf3 , \cf8 "mark"\cf3 :\cf8 "Samsung"\cf3 \}, \cf4 \
+\cf3 \{\cf8 "name"\cf3 :\cf8 "Radio"\cf3 , \cf8 "price"\cf3 :\cf2 32\cf3 , \cf8 "mark"\cf3 :\cf8 "Panasonic"\cf3 \}, \cf4 \
+\cf3 \{\cf8 "name"\cf3 :\cf8 "ipod"\cf3 , \cf8 "price"\cf3 :\cf2 150\cf3 , \cf8 "mark"\cf3 :\cf8 "Apple"\cf3 \}]);\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf5 ==>\cf2 2.\cf3 Way\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.electronics.insert([\{\cf8 "name"\cf3 :\cf8 "TV"\cf3 , \cf8 "price"\cf3 :\cf2 123\cf3 , \cf8 "mark"\cf3 :\cf8 "Samsung"\cf3 \}, \cf4 \
+\cf3 \{\cf8 "name"\cf3 :\cf8 "Radio"\cf3 , \cf8 "price"\cf3 :\cf2 32\cf3 , \cf8 "mark"\cf3 :\cf8 "Panasonic"\cf3 \}, \cf4 \
+\cf3 \{\cf8 "name"\cf3 :\cf8 "ipod"\cf3 , \cf8 "price"\cf3 :\cf2 150\cf3 , \cf8 "mark"\cf3 :\cf8 "Apple"\cf3 \}]);\cf4 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 44\cf3 )Delete all records from electronics collection\cf4 \
+\cf3 db.electronics.remove(\{\});\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note: Aggregations\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 db.grades.insertMany([\
+\'a0\'a0\'a0 \{ _id: \cf2 6305\cf3 , name : \cf8 "A. MacDyver"\cf3 , \cf8 "assignment"\cf3  : \cf2 5\cf3 , \cf8 "points"\cf3  : \cf2 24\cf3  \},\cf4 \
+\cf3 \'a0\'a0\'a0 \{ _id: \cf2 6308\cf3 , name : \cf8 "B. Batlock"\cf3 , \cf8 "assignment"\cf3  : \cf2 3\cf3 , \cf8 "points"\cf3  : \cf2 22\cf3  \},\cf4 \
+\cf3 \'a0\'a0\'a0 \{ _id: \cf2 6312\cf3 , name : \cf8 "M. Tagnum"\cf3 , \cf8 "assignment"\cf3  : \cf2 5\cf3 , \cf8 "points"\cf3  : \cf2 30\cf3  \},\cf4 \
+\cf3 \'a0\'a0\'a0 \{ _id: \cf2 6319\cf3 , name : \cf8 "R. Stiles"\cf3 , \cf8 "assignment"\cf3  : \cf2 2\cf3 , \cf8 "points"\cf3  : \cf2 12\cf3  \},\cf4 \
+\cf3 \'a0\'a0\'a0 \{ _id: \cf2 6322\cf3 , name : \cf8 "A. MacDyver"\cf3 , \cf8 "assignment"\cf3  : \cf2 2\cf3 , \cf8 "points"\cf3  : \cf2 14\cf3  \},\cf4 \
+\cf3 \'a0\'a0\'a0 \{ _id: \cf2 6234\cf3 , name : \cf8 "R. Stiles"\cf3 , \cf8 "assignment"\cf3  : \cf2 1\cf3 , \cf8 "points"\cf3  : \cf2 10\cf3  \}\cf4 \
+\cf3 \'a0\'a0\'a0 ]);\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 45\cf3 )Find the total points \cf6 for \cf3 every assignment\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 var \cf7 pipeline \cf5 =\cf3  [\{$match:\{\}\}, \{$group:\{\cf8 "_id"\cf3 :\cf8 "$assignment"\cf3 , total_points:\{$sum:\cf8 "$points"\cf3 \}\}\}];\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.grades.aggregate(pipeline);\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 46\cf3 )Find the average points \cf6 for \cf3 every assignment\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 var \cf7 pipeline \cf5 =\cf3  [\{$match:\{\}\}, \{$group:\{\cf8 "_id"\cf3 :\cf8 "$assignment"\cf3 , average:\{$avg:\cf8 "$points"\cf3 \}\}\}];\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.grades.aggregate(pipeline);\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 47\cf3 )Find the minimum point \cf6 for \cf3 every assignment\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 var \cf7 pipeline \cf5 =\cf3  [\{$match:\{\}\}, \{$group:\{\cf8 "_id"\cf3 :\cf8 "$assignment"\cf3 , average:\{$min:\cf8 "$points"\cf3 \}\}\}];\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.grades.aggregate(pipeline);\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 48\cf3 )Find the average points of the records \cf6 if \cf3 the assignment is less than \cf2 4\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 var \cf7 pipeline \cf5 =\cf3  [\{$match:\{\cf8 "assignment"\cf3 :\{$lt:\cf2 4\cf3 \}\}\}, \{$group:\{\cf8 "_id"\cf3 :\cf8 "$assignment"\cf3 , average:\{$avg:\cf8 "$points"\cf3 \}\}\}];\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.grades.aggregate(pipeline);\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 49\cf3 )Find the sum of points of the documents whose names are starting \cf6 with \cf8 "A"\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 var \cf7 pipeline \cf5 =\cf3  [\{$match:\{\cf8 "name"\cf3 :\{$regex:\cf8 "^A"\cf3 \}\}\}, \{$group:\{\cf8 "_id"\cf3 :\cf9 null\cf3 , total_points:\{$sum:\cf8 "$points"\cf3 \}\}\}];\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.grades.aggregate(pipeline);\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf2 50\cf3 )Find the sum of all points of the documents whose names are ending \cf6 with \cf8 "s"\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf6 var \cf7 pipeline \cf5 =\cf3  [\{$match:\{\cf8 "name"\cf3 :\{$regex:\cf8 "s$"\cf3 \}\}\}, \{$group:\{\cf8 "_id"\cf3 :\cf9 null\cf3 , total_points:\{$sum:\cf8 "$points"\cf3 \}\}\}];\cf4 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf3 db.grades.aggregate(pipeline);\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs29\fsmilli14667 \cf4 \'a0\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs26 \cf3 Note: How to count documents\
+\cf2 51\cf3 )Find the nu...\cf4 \
+}
