@@ -1,0 +1,274 @@
+
+1) How to create DB 
+        use product; ==> switched to db product 
+
+ Note : in MongoDB index is similar as sql primary key  as 
+
+
+ 2) How to see which database are you  in 
+            db;  ==> products
+
+ 3) How to add a collection into a DB
+            db.createCollection("autos"); ==>  { "ok" : 1 }          
+4) How to insert a single Document into a collection
+            db.electronics.insertOne({"price":230,"name":"Tv","madeby":"japan" });
+
+
+ 5) How to insert to multiple Documents into a colletion 
+           db.electronis.insertMany([{"name":"imac","price":345 },{"name":"iphone","price":2345},{"name":"radio" ,"price":54,"tax":13 } ]);
+
+ 6) How to insert a single or many documents into a collection 
+           db.electronics.insert({"name":"iron","tax":12});
+
+  7) How to create our own index
+                db.electronics.ensureIndex({"name":1});
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}   
+
+
+8) How to remove or drop collection
+            db.electronics.drop();
+true
+
+
+9) show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+products  0.000GB
+
+10 ) How to drop database  or remove 
+            db.dropDatabase();
+
+
+  11)   to change to database .....
+    > use admin
+switched to db admin
+> db
+admin
+
+
+11) How to read all documents from a collection
+                         db.clothes.find();
+                         db.clothes.find().pretty(); ==> Makes the output more 
+
+
+db.electronis.find().pretty();
+{
+        "_id" : ObjectId("60b81cba5ffb83129f4a0ea9"),
+        "name" : "imac",
+        "price" : 345
+}
+{
+        "_id" : ObjectId("60b81cba5ffb83129f4a0eaa"),
+        "name" : "iphone",
+        "price" : 2345
+}
+{
+        "_id" : ObjectId("60b81cba5ffb83129f4a0eab"),
+        "name" : "radio",
+        "price" : 54,
+        "tax" : 13
+}
+
+
+12) How to read  limited number of Documents
+
+db.clothes.find().pretty().limit(2);
+{
+        "_id" : ObjectId("60b892b2de43d2510238e124"),
+        "name" : "Shoes",
+        "price" : 43,
+        "mark" : "Levis"
+}
+{
+        "_id" : ObjectId("60b892dade43d2510238e125"),
+        "name" : "Shirt",
+        "price" : 4565,
+        "mark" : "Polo"
+}
+
+13) How to read 3rd documents
+      db.clothes.find().pretty()skip(2).limit(1);
+      {
+        "_id" : ObjectId("60b89305de43d2510238e126"),
+        "name" : "Trouser",
+        "price" : 3456,
+        "mark" : "LG"
+}
+
+13) How to read documents whose names are Shirt
+
+     db.clothes.find({$and:[{"name":"Shirt"}]});
+
+{ "_id" : ObjectId("60b892dade43d2510238e125"), "name" : "Shirt", "price" : 4565, "mark" : "Polo" }
+{ "_id" : ObjectId("60b894d3de43d2510238e128"), "name" : "Shirt", "price" : 453, "mark" : "Tommy Hilfer" }
+        
+  b) db.clothes.find({$and:[{"name":"Shirt"}]}).pretty();
+{
+        "_id" : ObjectId("60b892dade43d2510238e125"),
+        "name" : "Shirt",
+        "price" : 4565,
+        "mark" : "Polo"
+}
+{
+        "_id" : ObjectId("60b894d3de43d2510238e128"),
+        "name" : "Shirt",
+        "price" : 453,
+        "mark" : "Tommy Hilfer"
+}
+
+
+14) How to read documents whose name is "Shirt" AND priceis "34""
+            db.clothes.find({$and:[{"name":"Shirt"}, {"price":4565} ]}).pretty();
+
+            {
+        "_id" : ObjectId("60b892dade43d2510238e125"),
+        "name" : "Shirt",
+        "price" : 4565,
+        "mark" : "Polo"
+}
+
+
+15) How to read documents whose names are "Shirt" OR "Shoes"
+
+              db.clothes.find({$or:[{"name":"Shirt"}, {"name":"Shoes"} ]}).pretty();      
+
+
+16) How to read just priceis of the Shirt
+
+             {"price":1,"_id":0 } )  onemli _id:0 ==> negative ve id gosterme demek 
+
+       db.clothes.find({"name":"Shirt"}, {"price":1,"_id":0 } ).pretty();
+{ "price" : 4565 }
+{ "price" : 453 }
+
+18 ) How to read just priceis  and names of the clothes , sort them by priceis in descending 
+
+    {} empty curley brace is meaning that is not important the parameter and all want to see 
+
+      db.clothes.find ({}, {"name":1,"price":1,"_id":0 } ).sort({"price":-1}).pretty();
+
+
+Note : sort({"price":-1}) is mean that descending order if it was 1 then will it ascending order 
+
+        { "name" : "Shirt", "price" : 4565 }
+        { "name" : "Trouser", "price" : 3456 }
+        { "name" : "Shirt", "price" : 453 }
+        { "name" : "Undewear", "price" : 56 }
+        { "name" : "Shoes", "price" : 43 }
+
+
+19 ) How to read first one 
+      db.clothes.find().limit(1).pretty();
+      db.clothes.findOne();
+
+{
+        "_id" : ObjectId("60b892b2de43d2510238e124"),
+        "name" : "Shoes",
+        "price" : 43,
+        "mark" : "Levis"
+}      
+
+
+20) How to read Shirts in ascending order by price
+
+        db
+                   .clothes.find({"name":"Shirt"}, {"_id":0 } )
+                   .sort({"price":1}).pretty();
+
+{ "name" : "Shirt", "price" : 453, "mark" : "Tommy Hilfer" }
+{ "name" : "Shirt", "price" : 4565, "mark" : "Polo" }
+
+
+21) How to read Shirt in descending order by price
+        db.clothes.find({"name":"Shirt"},{"_id":0 } ).sort({"price":1}).pretty();
+{ "name" : "Shirt", "price" : 453, "mark" : "Tommy Hilfer" }
+{ "name" : "Shirt", "price" : 4565, "mark" : "Polo" }
+> db.clothes.find({"name":"Shirt"},{"_id":0 } ).sort({"price":-1}).pretty();
+{ "name" : "Shirt", "price" : 4565, "mark" : "Polo" }
+{ "name" : "Shirt", "price" : 453, "mark" : "Tommy Hilfer" }
+
+21) Fetch documents whose prices are equal to 5
+    db.clothes.find({"price":4565}).pretty();
+{
+        "_id" : ObjectId("60b892dade43d2510238e125"),
+        "name" : "Shirt",
+        "price" : 4565,
+        "mark" : "Polo"
+}
+> db.clothes.find( {price:{$eq:5} } ).pretty();
+
+   db.clothes.find({price:5}).pretty(); iki code da ayni sonucu veriyor 
+
+{
+        "_id" : ObjectId("60b892dade43d2510238e125"),
+        "name" : "Shirt",
+        "price" : 5,
+        "mark" : "Polo"
+}
+{
+        "_id" : ObjectId("60b894d3de43d2510238e128"),
+        "name" : "Shirt",
+        "price" : 5,
+        "mark" : "Tommy Hilfer"
+}
+
+22) Fetch documents whose prices are less than or equal to 35 
+      
+       db.clothes.find({"price":{$lte:35}}).pretty();
+
+                find({"price":{$lte:35}})
+23) Fetch documents whose prices are greater than or equal 50
+            db.clothes.find({"price":{$gte:50}}).pretty();
+     
+24 ) Fetch documents whose prices are one of the 23 ,5,34
+
+     db.clothes.find({"price":{$in:[23,5,34]}}).pretty();
+    
+    {
+        "_id" : ObjectId("60b892dade43d2510238e125"),
+        "name" : "Shirt",
+        "price" : 5,
+        "mark" : "Polo"
+}
+{
+        "_id" : ObjectId("60b894d3de43d2510238e128"),
+        "name" : "Shirt",
+        "price" : 5,
+        "mark" : "Tommy Hilfer"
+}
+
+25 ) Find the documents whose prices are less than 30 then replace  "Boxer" 
+    for name and 33 for price  
+
+        db.clothes.findOneAndReplace({"price":{$lt:30 } },{"name":"Boxer","price":33}  );
+{
+        "_id" : ObjectId("60b892dade43d2510238e125"),
+        "name" : "Shirt",
+        "price" : 5,
+        "mark" : "Polo"
+}
+
+
+///////
+ db.clothes.findOneAndReplace({"price":{$lt:50 } },{"name":"BoxerXXX","price":99}  );
+{
+        "_id" : ObjectId("60b892b2de43d2510238e124"),
+        "name" : "Shoes",
+        "price" : 43,
+        "mark" : "Levis"
+}
+
+
+
+
+
+
+
+
+
